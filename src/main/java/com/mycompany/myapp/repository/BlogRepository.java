@@ -15,7 +15,7 @@ public interface BlogRepository {
 
 //    Optional<Blog> findAllBlogs();
 
-    Page<Blog> findAllBlogs(Pageable pageable);
+    List<Blog> findAllBlogs();
 
 //    Blog findOneBlog(String id);
 //

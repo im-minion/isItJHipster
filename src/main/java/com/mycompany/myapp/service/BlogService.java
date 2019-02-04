@@ -24,9 +24,9 @@ public class BlogService {
         this.blogsRepository = blogRepository;
     }
 
-    public Page<Blog> getAllBlogs(Pageable pageable) {
+    public List<Blog> getAllBlogs() {
 
-        return blogsRepository.findAllBlogs(pageable);
+        return blogsRepository.findAllBlogs();
 //        return ;
     }
 

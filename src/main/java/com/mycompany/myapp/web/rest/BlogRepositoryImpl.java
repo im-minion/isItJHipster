@@ -7,11 +7,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class BlogRepositoryImpl implements BlogRepository {
     @Override
-    public Page<Blog> findAllBlogs(Pageable pageable) {
+    public List<Blog> findAllBlogs() {
         Blog blog = new Blog();
         blog.setBlogDescription("sxss");
         blog.setBlogTitle("sss");
@@ -20,6 +21,6 @@ public class BlogRepositoryImpl implements BlogRepository {
         ArrayList<Blog> list = new ArrayList<>();
         list.add(blog);
 
-        return (Page<Blog>) list;
+        return list;
     }
 }

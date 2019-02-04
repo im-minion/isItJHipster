@@ -33,11 +33,11 @@ public class BlogResource {
     }
 
     @GetMapping("/blogs")
-    public ResponseEntity<List<Blog>> getAllBlogs(Pageable pageable) {
-        final Page<Blog> page = blogService.getAllBlogs(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/blogs");
+    public List<Blog> getAllBlogs() {
+        final List<Blog> page = blogService.getAllBlogs();
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/blogs");
         System.out.println(page);
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        return page;
     }
 
 //    @GetMapping("/users")
