@@ -1,7 +1,6 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.Blog;
-import com.mycompany.myapp.repository.BlogRepository;
 import com.mycompany.myapp.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

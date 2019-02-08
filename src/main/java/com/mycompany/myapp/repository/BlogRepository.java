@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public class BlogRepository {
-    MongoTemplate mongoTemplate;
+    private MongoTemplate mongoTemplate;
 
     private static final String BLOG = "blog";
 

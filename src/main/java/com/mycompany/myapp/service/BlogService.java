@@ -14,8 +14,12 @@ public class BlogService {
 
     private final Logger log = LoggerFactory.getLogger(UserService.class);
 
+    private final BlogRepository blogsRepository;
+
     @Autowired
-    private BlogRepository blogsRepository;
+    public BlogService(BlogRepository blogsRepository) {
+        this.blogsRepository = blogsRepository;
+    }
 
     public List<Blog> getAllBlogs() {
         return this.blogsRepository.findAllBlogs();
