@@ -18,18 +18,11 @@ public class BlogService {
     private BlogRepository blogsRepository;
 
     public List<Blog> getAllBlogs() {
-
         return this.blogsRepository.findAllBlogs();
-//        return ;
     }
 
     public List<Blog> getSpecificBlogById(String id) {
         return this.blogsRepository.findSpecificBlogById(id);
     }
-
-//     public void addBlog(Blog blog) {
-//        blogsRepository.findAllBlogs();
-//
-//    }
 
 }

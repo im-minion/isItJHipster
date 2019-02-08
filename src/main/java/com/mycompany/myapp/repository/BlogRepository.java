@@ -20,13 +20,8 @@ public class BlogRepository {
         this.mongoTemplate = mongoTemplate;
     }
 
-    //    Optional<Blog> findAllBlogs();
-
     public List<Blog> findAllBlogs() {
-//        Criteria criteria = new Criteria("id").is(id);
-//        Query query = new Query().addCriteria(criteria);
-//        return mongoTemplate.find(query,Blog.class,BLOG);
-        return mongoTemplate.find(Query.query(new Criteria()),Blog.class,BLOG);
+        return mongoTemplate.findAll(Blog.class);
 
     }
 
@@ -36,17 +31,4 @@ public class BlogRepository {
         return mongoTemplate.find(query, Blog.class, BLOG);
     }
 
-//    Blog findOneBlog(String id);
-//
-//
-//
-//    Optional<Blog> findOneBy(String resetKey);
-//
-//    String addBlog(Blog blog);
-
-//    Optional<User> findOneByEmailIgnoreCase(String email);
-//
-//    Optional<User> findOneByLogin(String login);
-//
-//    Page<User> findAllByLoginNot(Pageable pageable, String login);
 }

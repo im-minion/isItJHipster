@@ -15,12 +15,10 @@ import java.util.List;
 public class BlogResource {
 
     private final BlogService blogService;
-    private final BlogRepository blogRepository;
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
-    BlogResource(BlogService blogService, BlogRepository blogRepository) {
+    BlogResource(BlogService blogService) {
         this.blogService = blogService;
-        this.blogRepository = blogRepository;
     }
 
     @GetMapping("/blogs")
