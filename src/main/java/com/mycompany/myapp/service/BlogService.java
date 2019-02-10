@@ -1,6 +1,7 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.Blog;
+import com.mycompany.myapp.domain.BlogPostRequestBody;
 import com.mycompany.myapp.repository.BlogRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,4 +30,7 @@ public class BlogService {
         return this.blogsRepository.findSpecificBlogById(id);
     }
 
+    public String postBlog(BlogPostRequestBody blogPostRequestBody) {
+        return this.blogsRepository.addBlog(blogPostRequestBody);
+    }
 }

@@ -1,6 +1,7 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.Blog;
+import com.mycompany.myapp.domain.BlogPostRequestBody;
 import com.mycompany.myapp.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,5 +33,10 @@ public class BlogResource {
         final List<Blog> blog = blogService.getSpecificBlogById(id);
         System.out.println(blog);
         return blog;
+    }
+
+    @RequestMapping(value = "/blogs", method = RequestMethod.POST)
+    public String insertBlog(@RequestBody BlogPostRequestBody blogPostRequestBody) {
+        return blogService.postBlog(blogPostRequestBody);
     }
 }
