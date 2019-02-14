@@ -2,13 +2,15 @@ package com.mycompany.myapp.repository;
 
 import com.mycompany.myapp.domain.Blog;
 import com.mycompany.myapp.domain.BlogPostRequestBody;
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.util.List;
 
 @Repository
@@ -17,7 +19,7 @@ public class BlogRepository {
 
     private static final String BLOG = "blog";
 
-    @Autowired
+       @Autowired
     public BlogRepository(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }
@@ -33,15 +35,16 @@ public class BlogRepository {
         return mongoTemplate.find(query, Blog.class, BLOG);
     }
 
-    public String addBlog(BlogPostRequestBody blogPostRequestBody) {
+    public String addBlog(MultipartFile multipart, BlogPostRequestBody blogPostRequestBody) {
         try {
             Blog postReq = new Blog();
-            postReq.setBlogImage(blogPostRequestBody.getFile().getPath());
             postReq.setBlogTitle(blogPostRequestBody.getBlogTitle());
             postReq.setBlogDescription(blogPostRequestBody.getBlogDescription());
+            postReq.setBlogImage(new Binary(BsonBinarySubType.BINARY, multipart.getBytes()));
             mongoTemplate.insert(postReq, BLOG);
             return "success";
         } catch (Exception ex) {
+            ex.printStackTrace();
             return "failed";
         }
     }

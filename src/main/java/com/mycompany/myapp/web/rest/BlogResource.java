@@ -7,13 +7,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 @Component
 @RestController
 @RequestMapping("/api")
 public class BlogResource {
-
     private final BlogService blogService;
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
@@ -35,8 +35,11 @@ public class BlogResource {
         return blog;
     }
 
-    @RequestMapping(value = "/blogs", method = RequestMethod.POST)
-    public String insertBlog(@RequestBody BlogPostRequestBody blogPostRequestBody) {
-        return blogService.postBlog(blogPostRequestBody);
+    @PostMapping(value = "/blogs")
+    public String insertBlog(@RequestParam("file") MultipartFile multipart, @RequestParam("blogImage") String blogImage, @RequestParam("blogTitle") String blogTitle, @RequestParam("blogDescription") String blogDescription) {
+        BlogPostRequestBody blogPostRequestBody = new BlogPostRequestBody();
+        blogPostRequestBody.setBlogTitle(blogTitle);
+        blogPostRequestBody.setBlogDescription(blogDescription);
+        return blogService.postBlog(multipart, blogPostRequestBody);
     }
 }

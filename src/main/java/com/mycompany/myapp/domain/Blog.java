@@ -1,5 +1,6 @@
 package com.mycompany.myapp.domain;
 
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,7 +12,8 @@ public class Blog implements Serializable {
 
     private String blogTitle;
     private String blogDescription;
-    private String blogImage;
+    private String blogImageType;
+    private Binary blogImage;
     @Id
     @Nullable
     private String id;
@@ -19,7 +21,7 @@ public class Blog implements Serializable {
     public Blog() {
 
     }
-    public Blog(String blogTitle, String blogDescription, String blogImage, @Nullable String id) {
+    public Blog(String blogTitle, String blogDescription, Binary blogImage, @Nullable String id) {
         this.blogTitle = blogTitle;
         this.blogDescription = blogDescription;
         this.blogImage = blogImage;
@@ -50,11 +52,19 @@ public class Blog implements Serializable {
         this.blogDescription = blogDescription;
     }
 
-    public String getBlogImage() {
+    public String getBlogImageType() {
+        return blogImageType;
+    }
+
+    public void setBlogImageType(String blogImageType) {
+        this.blogImageType = blogImageType;
+    }
+
+    public Binary getBlogImage() {
         return blogImage;
     }
 
-    public void setBlogImage(String blogImage) {
+    public void setBlogImage(Binary blogImage) {
         this.blogImage = blogImage;
     }
 
