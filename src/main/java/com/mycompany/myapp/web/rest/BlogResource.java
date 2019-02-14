@@ -23,9 +23,7 @@ public class BlogResource {
 
     @GetMapping("/blogs")
     public List<Blog> retrieveAllBlogs() {
-        final List<Blog> blogList = blogService.getAllBlogs();
-        System.out.println(blogList);
-        return blogList;
+        return blogService.getAllBlogs();
     }
 
     @RequestMapping(value = "/blogs/{id}", method = RequestMethod.GET)

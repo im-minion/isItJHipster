@@ -12,7 +12,6 @@ public class Blog implements Serializable {
 
     private String blogTitle;
     private String blogDescription;
-    private String blogImageType;
     private Binary blogImage;
     @Id
     @Nullable
@@ -50,14 +49,6 @@ public class Blog implements Serializable {
 
     public void setBlogDescription(String blogDescription) {
         this.blogDescription = blogDescription;
-    }
-
-    public String getBlogImageType() {
-        return blogImageType;
-    }
-
-    public void setBlogImageType(String blogImageType) {
-        this.blogImageType = blogImageType;
     }
 
     public Binary getBlogImage() {
