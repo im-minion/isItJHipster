@@ -19,7 +19,7 @@ public class BlogRepository {
 
     private static final String BLOG = "blog";
 
-       @Autowired
+    @Autowired
     public BlogRepository(MongoTemplate mongoTemplate) {
         this.mongoTemplate = mongoTemplate;
     }

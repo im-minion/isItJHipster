@@ -3,6 +3,7 @@ package com.mycompany.myapp.domain;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.annotation.Nullable;
 import java.io.Serializable;
@@ -10,8 +11,11 @@ import java.io.Serializable;
 @Document(collection = "blog")
 public class Blog implements Serializable {
 
+    @Field
     private String blogTitle;
+    @Field
     private String blogDescription;
+    @Field
     private Binary blogImage;
     @Id
     @Nullable
@@ -20,6 +24,7 @@ public class Blog implements Serializable {
     public Blog() {
 
     }
+
     public Blog(String blogTitle, String blogDescription, Binary blogImage, @Nullable String id) {
         this.blogTitle = blogTitle;
         this.blogDescription = blogDescription;
