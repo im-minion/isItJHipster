@@ -3,8 +3,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginService } from 'app/core/login/login.service';
-import { StateStorageService } from 'app/core/auth/state-storage.service';
+import { LoginService } from '../../../app/core/login/login.service';
+import { StateStorageService } from '../../../app/core/auth/state-storage.service';
 
 @Component({
     selector: 'jhi-login-modal',
