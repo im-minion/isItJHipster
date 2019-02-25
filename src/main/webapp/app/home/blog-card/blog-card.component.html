@@ -1,0 +1,8 @@
+<p>
+  blog-card works! 
+  Title : {{ blogData.blogTitle }}
+  Description : {{ blogData.blogDescription }}
+  Image : 
+</p>
+<!-- <img [src]="imageBlobUrl"> -->
+<img src="{{ dataURItoBlob(blogData.blogImage) }}">

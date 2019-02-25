@@ -18,14 +18,11 @@ export class BlogHomeComponent implements OnInit {
             .subscribe((res: HttpResponse<Blog[]>) => this.onSuccess(res.body), (res: HttpResponse<any>) => this.onError(res.body));
     }
     private onSuccess(data) {
-        // this.links = this.parseLinks.parse(headers.get('link'));
-        // this.totalItems = headers.get('X-Total-Count');
         this.blogs = data;
         console.log(this.blogs);
     }
 
     private onError(error) {
         console.log(error);
-        // this.alertService.error(error.error, error.message, null);
     }
 }
