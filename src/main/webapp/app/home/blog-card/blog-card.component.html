@@ -1,8 +1,8 @@
-<p>
-  blog-card works! 
-  Title : {{ blogData.blogTitle }}
-  Description : {{ blogData.blogDescription }}
-  Image : 
-</p>
-<!-- <img [src]="imageBlobUrl"> -->
-<img src="{{ dataURItoBlob(blogData.blogImage) }}">
+<div *ngIf="blogData" class="card">
+  <div class="card-header">Title : {{ blogData.blogTitle }}</div>
+  <div class="card-body">Description : {{ blogData.blogDescription }}
+    <img src="{{ dataURItoBlob(blogData.blogImage) }}" width="200" height="200">
+
+  </div>
+  <div class="card-footer">Like</div>
+</div>
